@@ -1,10 +1,22 @@
 import React, { useContext } from 'react';
+import { useHistory } from 'react-router-dom';
 import { actions, UserContext } from '../../store';
 
 function UserList() {
 
     const [state, dispatch] = useContext(UserContext);
     const { users, user } = state;
+
+    const history = useHistory();
+
+    const handleEditClick = (user) => {
+        dispatch(actions.setUser(user));
+        history.push(`/edit/${user.id}`);
+    }
+
+    const handleDeleteClick = (user) => {
+        dispatch(actions.deleteUser(user));
+    }
 
     return (
         <div className="data">
@@ -37,7 +49,7 @@ function UserList() {
                             <td>
                                 <button
                                     onClick={() => {
-                                        dispatch(actions.setUser(user));
+                                        handleEditClick(user)
                                     }}
                                     className="btn-control btn-control--edit"
                                 >
@@ -46,7 +58,7 @@ function UserList() {
                                 &nbsp;&nbsp;
                                 <button
                                     onClick={() => {
-                                        dispatch(actions.deleteUser(user));
+                                        handleDeleteClick(user);
                                     }}
                                     className="btn-control btn-control--delete"
                                 >

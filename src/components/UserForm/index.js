@@ -1,13 +1,16 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { actions, UserContext } from '../../store';
 import Validate from './Validate';
+import { useHistory } from 'react-router-dom';
 
 function UserForm() {
 
     const [state, dispatch] = useContext(UserContext);
     const { users, user } = state;
 
-    const [error, setError] = useState({})
+    const [error, setError] = useState({});
+
+    const history = useHistory();
 
     const handleCheckbox = (id) => {
         const isChecked = user.courses.includes(id);
@@ -28,17 +31,8 @@ function UserForm() {
         }
 
         dispatch(actions.addUser(user));
-        dispatch(actions.setUser({
-            id: null,
-            name: '',
-            gender: 'male',
-            dob: '',
-            phone: '',
-            email: '',
-            address: '',
-            description: '',
-            courses: [],
-        }));
+
+        history.push('/home');
     }
 
     const handleUpdate = e => {
@@ -51,18 +45,25 @@ function UserForm() {
         }
 
         dispatch(actions.updateUser(user));
-        dispatch(actions.setUser({
-            id: null,
-            name: '',
-            gender: 'male',
-            dob: '',
-            phone: '',
-            email: '',
-            address: '',
-            description: '',
-            courses: [],
-        }));
+
+        history.push('/home');
     }
+
+    useEffect(() => {
+        return () => {
+            dispatch(actions.setUser({
+                id: null,
+                name: '',
+                gender: 'Male',
+                dob: '',
+                phone: '',
+                email: '',
+                address: '',
+                description: '',
+                courses: [],
+            }));
+        }
+    }, []);
 
     return (
         <div className="form">

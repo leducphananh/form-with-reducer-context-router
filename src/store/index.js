@@ -1,4 +1,6 @@
-export { default as UserProvider } from './Provider';
-export { default as UserContext } from './Context';
+import UserProvider from './Provider';
+import UserContext from './Context';
+
+export { UserProvider, UserContext };
 
 export * as actions from './actions';

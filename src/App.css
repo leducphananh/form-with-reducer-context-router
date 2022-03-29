@@ -15,13 +15,12 @@
   font-family: "Roboto", sans-serif;
 }
 
-html {
-  color: var(--text-color);
+body {
+  background-color: #f1f1f1;
 }
 
-.main {
-  background-color: #f1f1f1;
-  padding-top: 20px;
+html {
+  color: var(--text-color);
 }
 
 .form {
@@ -32,6 +31,7 @@ html {
   border-radius: 5px;
   padding: 20px;
   margin-bottom: 50px;
+  margin-top: 20px;
 }
 
 form > h3 {
@@ -133,7 +133,7 @@ form > .desc {
 
 .data {
   border-radius: 5px;
-  padding: 20px;
+  margin-top: 20px;
 }
 
 .data > h2 {
@@ -223,4 +223,32 @@ form > .desc {
 
 .btn-control--delete:hover {
   opacity: 0.8;
+}
+
+.header__navbar {
+  background-color: #333;
+}
+
+.nav-list {
+  list-style: none;
+  max-width: 1140px;
+  display: flex;
+  margin: auto;
+}
+
+.nav-list > li > a {
+  display: block;
+  line-height: 30px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.nav-list > li > a:hover:not(.active) {
+  background-color: #111;
+}
+
+.active {
+  background-color: #04aa6d;
 }

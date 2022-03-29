@@ -5,7 +5,7 @@ const initState = {
     user: {
         id: null,
         name: '',
-        gender: 'male',
+        gender: 'Male',
         dob: '',
         phone: '',
         email: '',

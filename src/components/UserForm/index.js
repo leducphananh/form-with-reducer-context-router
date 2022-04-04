@@ -12,6 +12,22 @@ function UserForm() {
 
     const history = useHistory();
 
+    useEffect(() => {
+        return () => {
+            dispatch(actions.setUser({
+                id: null,
+                name: '',
+                gender: 'Male',
+                dob: '',
+                phone: '',
+                email: '',
+                address: '',
+                description: '',
+                courses: [],
+            }));
+        }
+    }, []);
+
     const handleCheckbox = (id) => {
         const isChecked = user.courses.includes(id);
         const newCourse = isChecked ? user.courses.filter(item => item !== id) : [...user.courses, id];
@@ -48,22 +64,6 @@ function UserForm() {
 
         history.push('/home');
     }
-
-    useEffect(() => {
-        return () => {
-            dispatch(actions.setUser({
-                id: null,
-                name: '',
-                gender: 'Male',
-                dob: '',
-                phone: '',
-                email: '',
-                address: '',
-                description: '',
-                courses: [],
-            }));
-        }
-    }, []);
 
     return (
         <div className="form">

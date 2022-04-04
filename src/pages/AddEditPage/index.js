@@ -1,11 +1,11 @@
 import React from 'react';
 import UserForm from '../../components/UserForm';
 
-function AddPage(props) {
+function AddEditPage(props) {
 
     return (
         <UserForm />
     );
 }
 
-export default AddPage;
+export default AddEditPage;

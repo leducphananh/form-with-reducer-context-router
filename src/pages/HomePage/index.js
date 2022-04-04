@@ -1,9 +1,12 @@
-import React from 'react';
-import UserList from '../../components/UserList';
+import React, { Suspense } from 'react';
+
+const UserList = React.lazy(() => import('../../components/UserList'));
 
 function Home() {
     return (
-        <UserList />
+        <Suspense fallback={<div>List users is loading...</div>}>
+            <UserList />
+        </Suspense>
     );
 }
 

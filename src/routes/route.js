@@ -1,5 +1,4 @@
-import AddPage from "../pages/AddPage";
-import EditPage from "../pages/EditPage";
+import AddEditPage from "../pages/AddEditPage";
 import HomePage from "../pages/HomePage";
 
 const routes = [
@@ -11,11 +10,11 @@ const routes = [
     {
         path: "/add",
         label: "Add User",
-        component: AddPage
+        component: AddEditPage
     },
     {
         path: "/edit/:id",
-        component: EditPage
+        component: AddEditPage
     }
 ]
 
